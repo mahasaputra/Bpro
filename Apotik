@@ -1,0 +1,422 @@
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Scanner;
+import java.util.Calendar;
+public class Apotik {
+  
+   
+  //Method Garis
+  public static void garis(){
+    System.out.println("==========================");
+  }
+  
+    public static void main(String[] args) {
+        Scanner in = new Scanner (System.in);
+        
+        //Deklarasi Tabel Obat
+        Vector namaobat = new Vector();
+        Vector kodeobat = new Vector();
+        Vector hargaobat = new Vector();
+        Vector stokobat = new Vector ();
+
+        //Deklarasi Tabel Pelanggan
+        Vector idpelanggan = new Vector();
+        Vector namapelanggan = new Vector();
+        Vector nomerpelanggan = new Vector();
+
+        //Deklarasi Tabel Faktur
+        Vector nomorfaktur = new Vector();
+        Vector namafaktur = new Vector();
+        Vector totalfaktur = new Vector();
+       
+    //Deklarasi Tabel Penjualan
+        Vector kodeobatpenjualan = new Vector();
+        Vector namaobatpenjualan = new Vector();
+        Vector hargaobatpenjualan = new Vector();
+        Vector banyakobatpenjualan = new Vector();
+        Vector fakturobatpenjualan = new Vector();
+        Vector jumlahargapenjualan = new Vector();
+        
+        idpelanggan.add("1");
+        namapelanggan.add("Dani");
+        nomerpelanggan.add("08123456789");
+        
+        idpelanggan.add("2");
+        namapelanggan.add("Rio");
+        nomerpelanggan.add("08987654321");
+        
+        kodeobat.add("1");
+        namaobat.add("diapet");
+        hargaobat.add("3000");
+        stokobat.add("22");
+        
+        kodeobat.add("2");
+        namaobat.add("Amoxcilin");
+        hargaobat.add("2500");
+        stokobat.add("25");
+       
+        kodeobat.add("3");
+        namaobat.add("Captopril");
+        hargaobat.add("11900");
+        stokobat.add("26");
+        
+        kodeobat.add("4");
+        namaobat.add("Polysilane");
+        hargaobat.add("14000");
+        stokobat.add("27");
+        
+        kodeobat.add("5");
+        namaobat.add("Benadryl");
+        hargaobat.add("27400");
+        stokobat.add("28");
+        
+        kodeobat.add("6");
+        namaobat.add("glidiabet");
+        hargaobat.add("73000");
+        stokobat.add("23");
+        
+        kodeobat.add("7");
+        namaobat.add("Ketorolak");
+        hargaobat.add("15900");
+        stokobat.add("30");               
+        
+        kodeobat.add("8");
+        namaobat.add("Strepsils");
+        hargaobat.add("7500");
+        stokobat.add("32");
+        
+        kodeobat.add("9");
+        namaobat.add("Fentanil");
+        hargaobat.add("42900");
+        stokobat.add("33");
+        
+        kodeobat.add("10");
+        namaobat.add("Redoxon");
+        hargaobat.add("12350");
+        stokobat.add("34");
+        
+        
+        Calendar cal=Calendar.getInstance();
+        SimpleDateFormat contoh2 = new SimpleDateFormat("dd-MM-yyy");
+        String tanggal2 = contoh2.format(cal.getTime());
+        
+        int pilmenu=0;
+        int pilmenu1=0;
+        int pilmenu11=0;
+        int pilmenu12=0;
+                
+        do {
+            garis();
+            System.out.println("      SELAMAT DATANG      ");
+            System.out.println("     Apotik Maha jaya     ");
+            garis();
+            System.out.println("1. Login");
+            System.out.println("2. Stok Obat");
+            System.out.println("3. Tabel Pelanggan");
+            System.out.println("4. Exit");
+            System.out.print("Masukkan pilihan : ");
+            pilmenu=Integer.parseInt(in.nextLine());
+           
+            switch (pilmenu) {
+                case 1 :
+                    System.out.print("Masukkan ID : ");
+                    String id = in.nextLine();
+                    System.out.print("Masukkan Password :");
+                    String password = in.nextLine();
+                    if (id.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin"))
+                    {
+                        do {
+                    garis();
+                    System.out.println("        Database");
+                    garis();
+                    String pili;
+                    System.out.println("1. Insert Data");
+                    System.out.println("2. Update");
+                    System.out.println("3. Delete");
+                    System.out.println("4. Transaksi");
+                    System.out.println("5. Back to menu");
+                    System.out.print("Masukkan pilihan (1-5): ");
+                    pilmenu1=Integer.parseInt(in.nextLine());
+                    switch (pilmenu1){
+                        case 1 :
+                            
+                            garis();
+                            System.out.println("     Insert Database");
+                            garis();
+                            System.out.println("1. Tabel Obat");
+                            System.out.println("2. Tabel Pelanggan");
+                            System.out.println("3. Back to Menu");
+                            System.out.print("Masukkan pilihan (1-3): ");
+                            pilmenu1=Integer.parseInt(in.nextLine());
+                            switch (pilmenu1){
+                                case 1 :
+                                    garis();
+                                    System.out.println("     Insert Tabel Obat");
+                                    garis();
+                                    do {
+                                    System.out.print("Kode Obat : ");
+                                    kodeobat.add(in.nextLine());
+                                    System.out.print("Nama Obat : ");
+                                    namaobat.add(in.nextLine());       
+                                    System.out.print("Jumlah obat : ");
+                                    stokobat.add(in.nextLine());
+                                    System.out.print("Harga (Rp.): ");
+                                    hargaobat.add(in.nextLine()); System.out.println();
+                                    System.out.print("Apakah Anda menginputkan lagi ? (Y/T) :");
+                                    pili=in.nextLine();
+                                    } while (pili.equalsIgnoreCase("y"));
+                                    break;
+                                case 2:
+                                    garis();
+                                    System.out.println("     Insert Tabel Pelanggan");
+                                    garis();
+                                    do {
+                                    System.out.print("Kode Pelanggan : ");
+                                    idpelanggan.add(in.nextLine());
+                                    System.out.print("Nama Pelanggan : ");
+                                    namapelanggan.add(in.nextLine());       
+                                    System.out.print("Nomer Pelanggan : ");
+                                    nomerpelanggan.add(in.nextLine()); System.out.println();
+                                    System.out.print("Apakah Anda menginputkan lagi ? (Y/T) :");
+                                    pili=in.nextLine();
+                                    } while (pili.equalsIgnoreCase("y"));
+                                    break;
+                                    
+                            } 
+                            break;
+                            
+                        case 2 :
+                            garis();
+                            System.out.println("     Update Database");
+                            garis();
+                            System.out.println("1. Tabel Obat");
+                            System.out.println("2. Tabel Pelanggan");
+                            System.out.println("3. Back to Menu");
+                            System.out.print("Masukkan pilihan (1-3): ");
+                            pilmenu1=Integer.parseInt(in.nextLine());
+                            switch (pilmenu1){
+                                case 1 :
+                                    garis();
+                                    System.out.println("     Update Tabel Obat");
+                                    garis();
+                                    String pil32;
+                                    do {
+                                    System.out.print("Kode Obat : ");
+                                    String  tmp = in.nextLine();
+                                    System.out.print("Stok Obat Saat ini : ");
+                                    stokobat.removeElementAt(kodeobat.indexOf(tmp));
+                                    stokobat.insertElementAt(in.nextLine(), kodeobat.indexOf(tmp));
+                                    System.out.print(" ingin mengulaingi lagi? (Y/T) : ");
+                                    pil32=in.nextLine();
+                                    }while(pil32.equalsIgnoreCase("y"));
+                                    break;
+                                case 2 :
+                                    garis();
+                                    System.out.println("     Update Tabel Pelanggan");
+                                    garis();
+                                    String pil33;
+                                    do {
+                                    System.out.print("Kode Pelanggan : ");
+                                    String  tmp = in.nextLine();
+                                    System.out.print("Nomer pelanggan : ");
+                                    nomerpelanggan.removeElementAt(idpelanggan.indexOf(tmp));
+                                    nomerpelanggan.insertElementAt(in.nextLine(), idpelanggan.indexOf(tmp));
+                                    System.out.print(" ingin mengulaingi lagi? (Y/T) : ");
+                                    pil33=in.nextLine();
+                                    }while(pil33.equalsIgnoreCase("y"));
+                                    break;
+                            }
+                            break;
+                        case 3 : 
+                            garis();
+                            System.out.println("     Delete Database");
+                            garis();
+                            System.out.println("1. Tabel Obat");
+                            System.out.println("2. Tabel Pelanggan");
+                            System.out.println("3. Back to Menu");
+                            System.out.print("Masukkan pilihan (1-3): ");
+                            pilmenu1=Integer.parseInt(in.nextLine());
+                            switch (pilmenu1){
+                                case 1:
+                                    garis();
+                                    System.out.println("    Hapus Data Obat");
+                                    garis();
+                                    String pilh;
+                                    int ada = 1;
+                                    do {
+                                        System.out.print("Kode Obat yang dihapus : ");
+                                        String code =in.nextLine();
+                        
+                                        for (int x=0;x<kodeobat.size();x++) {
+                                            if (kodeobat.elementAt(x).toString().equalsIgnoreCase(code+"")) {
+                                                ada = 1;
+                                            break;
+                                            } else {
+                                            ada = 0;
+                                            }
+                                                   }
+                                        if (ada == 1) {
+                                        namaobat.removeElementAt(kodeobat.indexOf(code));
+                                        hargaobat.removeElementAt(kodeobat.indexOf(code));
+                                        stokobat.removeElementAt(kodeobat.indexOf(code));
+                                        kodeobat.removeElementAt(kodeobat.indexOf(code));
+                                        System.out.println("Data obat berhasil dihapus");
+                                        } else { System.out.println("Maaf Kode obat tidak ditersedia"); }
+                                    System.out.print(" ingin Mengulangi lagi? (Y/T) : ");
+                                    pilh=in.nextLine();
+                                    }while(pilh.equalsIgnoreCase("y"));
+                                    break;
+                                case 2 :
+                                    garis();
+                                    System.out.println("    Hapus Data Pelanggan");
+                                    garis();
+                                    String pilhp;
+                                    int adap = 1;
+                                    do {
+                                        System.out.print("Kode pelanggan yang dihapus : ");
+                                        String idp =in.nextLine();
+                        
+                                        for (int x=0;x<idpelanggan.size();x++) {
+                                            if (idpelanggan.elementAt(x).toString().equalsIgnoreCase(idp+"")) {
+                                                adap = 1;
+                                            break;
+                                            } else {
+                                            adap = 0;
+                                            }
+                                                   }
+                                        if (adap == 1) {
+                                        namapelanggan.removeElementAt(idpelanggan.indexOf(idp));
+                                        nomerpelanggan.removeElementAt(idpelanggan.indexOf(idp));
+                                        idpelanggan.removeElementAt(idpelanggan.indexOf(idp));
+                                        System.out.println("Data Pelanggan berhasil dihapus");
+                                        } else { System.out.println("Maaf data pelanggan salah"); }
+                                    System.out.print(" ingin Mengulangi lagi? (Y/T) : ");
+                                    pilhp=in.nextLine();
+                                    }while(pilhp.equalsIgnoreCase("y"));
+                                    break;
+                                    
+                            }
+                            break;
+                        case 4 :
+                                    do {
+                                    garis();
+                                    System.out.println("        Transaksi");
+                                    garis();
+                                    System.out.println("1. Kasir");
+                                    System.out.println("2. Laporan penjualan");
+                                    System.out.println("3. Faktur Penjualan");
+                                    System.out.println("4. Back to menu");
+                                    System.out.print("Masukkan pilihan (1-4): ");
+                                    pilmenu12=Integer.parseInt(in.nextLine());
+                                    switch (pilmenu12) {
+                                        case 1 :
+                                            garis();
+                                            System.out.println("        Program Kasir");
+                                            garis();
+                                            String pil33;
+                                            
+                                            int tot=0;
+                                            int totharga [] = new int [20];
+                                            String codp="";
+                                            String cod [] = new String[20];
+                                            int jml []= new int [20];
+                                            do {
+                                                int faktur=nomorfaktur.size()+1;
+                                                tot=0;
+                                                System.out.println();
+                                            System.out.print("Masukkan banyak kategori obat : ");
+                                            int n = Integer.parseInt(in.nextLine());
+                                                System.out.print("Masukkan kode Pelangan : ");
+                                                codp=in.nextLine();    
+                                                
+                                                for (int x=0;x<n;x++) {
+                                                    
+                                                    System.out.print("Masukkan Kode obat : ");
+                                                    cod[x] = in.nextLine();
+                                                    System.out.print("Masukkan jumlah obat : ");
+                                                    jml[x] = Integer.parseInt(in.nextLine());
+                                                    totharga[x] = jml[x]*Integer.parseInt(hargaobat.elementAt(kodeobat.indexOf(cod[x])).toString());
+                                                    tot+=totharga[x];
+                                                        //Untuk mengurangi Stok obat
+                                                        int totalskrng = Integer.parseInt(stokobat.elementAt(kodeobat.indexOf(cod[x])).toString())-jml[x];
+                                                        stokobat.removeElementAt(kodeobat.indexOf(cod[x]));
+                                                        stokobat.insertElementAt(totalskrng, kodeobat.indexOf(cod[x]));
+                                                    
+                                                        //Untuk Record Tabel penjualan
+                                                        kodeobatpenjualan.add(cod[x]);
+                                                        namaobatpenjualan.add(namaobat.elementAt(kodeobat.indexOf(cod[x])));
+                                                        hargaobatpenjualan.add(hargaobat.elementAt(kodeobat.indexOf(cod[x])));
+                                                        banyakobatpenjualan.add(jml[x]);
+                                                        fakturobatpenjualan.add(faktur);
+                                                        jumlahargapenjualan.add(totharga[x]);
+                                                        
+                                                    System.out.println();
+                                                }
+                                                System.out.println("Nama Pelanggan : "+namapelanggan.elementAt(idpelanggan.indexOf(codp)));
+                                                System.out.println("Nama obat \t\tBanyak \t\tHarga \t\tTotal");
+                                                for (int x=0;x<n;x++) {
+                                                System.out.println(namaobat.elementAt(kodeobat.indexOf(cod[x]))+" \t\t"+jml[x]+" \t\t"+hargaobat.elementAt(kodeobat.indexOf(cod[x]))+" \t\t"+totharga[x]);
+                                                
+                                                }
+                                                System.out.println("TOTAL HARGA \t\t\t\t\t\t:"+tot);
+                                                    //Merecord Faktur ke Tabel Faktur
+                                                    nomorfaktur.add(faktur);
+                                                    namafaktur.add(namapelanggan.elementAt(idpelanggan.indexOf(codp)));
+                                                    totalfaktur.add(tot);
+                                            System.out.print("Apakah Anda ingin mengulngi lagi? (Y/T) : ");
+                                            pil33=in.nextLine();
+                                            }while(pil33.equalsIgnoreCase("y"));
+                                            break;
+                                        case 2  :
+                                            garis();
+                                            System.out.println("    Laporoan penjualan");
+                                            garis();
+                                            System.out.println("Kode Obat \tNama Obat \t\tHarga Jual \tBanyak \t\tNo. Faktur \tJumlah Harga");
+                                            for (int x=0;x<kodeobatpenjualan.size();x++){
+                                                System.out.println(kodeobatpenjualan.elementAt(x)+" \t\t"+namaobatpenjualan.elementAt(x)+" \t\t"+hargaobatpenjualan.elementAt(x)+" \t\t"+banyakobatpenjualan.elementAt(x)+" \t\t"+fakturobatpenjualan.elementAt(x)+" \t\t"+jumlahargapenjualan.elementAt(x));
+                                                }
+                                            break;
+                                        case 3 :
+                                            garis();
+                                            System.out.println("      Faktur Penjualan");
+                                            garis();
+                                            System.out.println("No. Faktur \t\tNama Pelanggan \t\tTotal");
+                                            for (int x=0;x<nomorfaktur.size();x++) {
+                                                System.out.println(nomorfaktur.elementAt(x)+" \t\t\t"+namafaktur.elementAt(x)+" \t\t\t"+totalfaktur.elementAt(x));
+                                                }
+                                            break;
+                                    }
+                                    
+                                    }while(pilmenu12<4);
+                            break;
+                            
+                    }
+                        }while(pilmenu1<5);
+                            }else{System.out.println("ID atau Password yang Anda masukkan salah");}
+                    break;
+                case 2 :
+                            garis();
+                            System.out.println("        tersedia Obat ");
+                            garis();
+                            System.out.println("Kode obat\t\tNama obat\t\t\tStokobat\t\t\tHarga");
+                            for (int x=0;x<kodeobat.size();x++){
+                                
+                                System.out.println(kodeobat.elementAt(x)+"\t\t"+namaobat.elementAt(x)+"\t\t\t"+stokobat.elementAt(x)+"\t\t\t"+hargaobat.elementAt(x));
+                            }
+                    break;
+                case 3 :
+                            garis();
+                            System.out.println("      Data Pelanggan");
+                            garis();
+                            System.out.println("Nomer \t\tNama \t\tNo. Telepon");
+                            for (int x=0;x<idpelanggan.size();x++) {
+                                System.out.println(idpelanggan.elementAt(x)+" \t\t"+namapelanggan.elementAt(x)+" \t\t"+nomerpelanggan.elementAt(x));
+                            }
+                    break;
+                    
+            }    
+            
+        }while(pilmenu<4);
+    }
+    
+}
